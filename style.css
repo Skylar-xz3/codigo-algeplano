@@ -465,22 +465,845 @@ h1 span {
 }
 
 
-/* =========================================
-   MARCO TEÓRICO
-========================================= */
+/* =========================================================
+   MARCO TEÓRICO - DISEÑO VISUAL
+========================================================= */
 
 .marco-teorico {
     position: relative;
-
     min-height: 100vh;
+    padding: 110px 25px 130px;
 
-    padding: 110px 25px;
+    background:
+        radial-gradient(circle at 85% 15%, rgba(105, 90, 255, 0.14), transparent 28%),
+        radial-gradient(circle at 10% 70%, rgba(56, 220, 198, 0.08), transparent 25%),
+        #07111f;
+
+    overflow: hidden;
+}
+
+/* Cuadrícula suave del fondo */
+
+.marco-teorico::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+
+    background-size: 45px 45px;
+
+    pointer-events: none;
+}
+
+
+/* CONTENEDOR */
+
+.contenedor {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* NÚMERO DE SECCIÓN */
+
+.numero-seccion {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #7df0dc;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    padding: 8px 14px;
+
+    background: rgba(92, 229, 210, 0.07);
+
+    border: 1px solid rgba(92, 229, 210, 0.20);
+    border-radius: 100px;
+
+    margin-bottom: 25px;
+}
+
+
+/* ENCABEZADO */
+
+.encabezado-seccion {
+    max-width: 750px;
+    margin-bottom: 55px;
+}
+
+.mini-titulo {
+    color: #8997ff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+.encabezado-seccion h2 {
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: clamp(42px, 6vw, 72px);
+
+    line-height: 1.05;
+    letter-spacing: -3px;
+
+    color: #f4f6ff;
+}
+
+.encabezado-seccion h2 span {
+    background: linear-gradient(
+        90deg,
+        #7b8cff,
+        #9c7cff,
+        #58dfcf
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* =========================================================
+   BLOQUE PRINCIPAL: TEXTO + IMAGEN
+========================================================= */
+
+.bloque-explicacion {
+    display: grid;
+
+    grid-template-columns: 1.15fr 0.85fr;
+
+    gap: 30px;
+
+    align-items: stretch;
+
+    margin-bottom: 100px;
+}
+
+
+/* TARJETA DEL TEXTO */
+
+.texto-explicacion {
+    position: relative;
+
+    padding: 40px 42px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.065),
+            rgba(255,255,255,0.025)
+        );
+
+    border: 1px solid rgba(255,255,255,0.10);
+
+    border-radius: 26px;
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.20);
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* Línea decorativa */
+
+.texto-explicacion::before {
+    content: "";
+
+    position: absolute;
+
+    top: 30px;
+    left: 0;
+
+    width: 3px;
+    height: 70px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            #7a87ff,
+            #59e4d1
+        );
+}
+
+
+.texto-explicacion p {
+    color: #b8c2d6;
+
+    font-size: 16px;
+    line-height: 1.85;
+
+    margin-bottom: 24px;
+}
+
+.texto-explicacion p:last-child {
+    margin-bottom: 0;
+}
+
+.texto-explicacion strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   IMAGEN / ALGEPLANO
+========================================================= */
+
+.imagen-algeplano {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+.marco-imagen {
+    height: 100%;
+
+    min-height: 430px;
+
+    padding: 18px;
+
+    border-radius: 26px;
+
+    border: 1px solid rgba(123, 139, 255, 0.20);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(110, 124, 255, 0.08),
+            rgba(78, 226, 207, 0.035)
+        );
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.20);
+
+    overflow: hidden;
+}
+
+
+/* Para cuando coloquemos la foto */
+
+.marco-imagen img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    display: block;
+}
+
+
+/* Ilustración temporal */
+
+.imagen-temporal {
+    width: 100%;
+    height: 100%;
+
+    min-height: 390px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 28px;
+
+    border-radius: 18px;
 
     background:
         radial-gradient(
-        circle at 90% 20%,
-        rgba(91,105,255,0.12),
-        transparent 30%),
+            circle at center,
+            rgba(105, 119, 255, 0.15),
+            transparent 60%
+        ),
+        rgba(5, 13, 27, 0.65);
+}
 
-        radial-gradient(
-        circle at 
+.imagen-temporal > p {
+    color: #77839a;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* Mini Algeplano */
+
+.mini-algeplano {
+    width: 220px;
+    height: 220px;
+
+    position: relative;
+}
+
+.mini-x2 {
+    position: absolute;
+
+    width: 145px;
+    height: 145px;
+
+    left: 0;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(77,226,208,0.32),
+            rgba(77,226,208,0.12)
+        );
+
+    border:
+        1px solid
+        rgba(77,226,208,0.55);
+
+    color: #7df0dc;
+
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: 35px;
+    font-weight: 600;
+
+    box-shadow:
+        0 15px 40px
+        rgba(77,226,208,0.08);
+}
+
+.mini-x {
+    position: absolute;
+
+    width: 58px;
+    height: 145px;
+
+    right: 8px;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(126,116,255,0.30),
+            rgba(126,116,255,0.10)
+        );
+
+    border:
+        1px solid
+        rgba(126,116,255,0.55);
+
+    color: #a79cff;
+
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: 27px;
+}
+
+.mini-uno {
+    position: absolute;
+
+    width: 58px;
+    height: 58px;
+
+    right: 8px;
+    bottom: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,194,92,0.30),
+            rgba(255,194,92,0.10)
+        );
+
+    border:
+        1px solid
+        rgba(255,194,92,0.55);
+
+    color: #ffd17e;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+.pie-imagen {
+    color: #65738d;
+
+    font-size: 12px;
+
+    text-align: center;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   LEYENDA VISUAL
+========================================================= */
+
+.zona-fichas {
+    margin-top: 20px;
+}
+
+.titulo-fichas {
+    text-align: center;
+
+    max-width: 620px;
+
+    margin: 0 auto 50px;
+}
+
+.titulo-fichas h3 {
+    font-family: 'Space Grotesk', sans-serif;
+
+    color: #f2f4ff;
+
+    font-size: clamp(34px, 5vw, 52px);
+
+    letter-spacing: -2px;
+
+    margin-bottom: 12px;
+}
+
+.titulo-fichas > p:last-child {
+    color: #7f8ba2;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* LAS TRES TARJETAS */
+
+.tarjetas-fichas {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+.tarjeta {
+    position: relative;
+
+    min-height: 470px;
+
+    padding: 32px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.018)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.09);
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,0.18);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.tarjeta:hover {
+    transform:
+        translateY(-10px);
+
+    box-shadow:
+        0 35px 80px
+        rgba(0,0,0,0.30);
+}
+
+
+/* COLORES AL PASAR EL MOUSE */
+
+.tarjeta-x2:hover {
+    border-color:
+        rgba(77,226,208,0.40);
+}
+
+.tarjeta-x:hover {
+    border-color:
+        rgba(126,116,255,0.45);
+}
+
+.tarjeta-uno:hover {
+    border-color:
+        rgba(255,194,92,0.45);
+}
+
+
+/* NÚMERO */
+
+.numero-ficha {
+    position: absolute;
+
+    top: 25px;
+    right: 27px;
+
+    color:
+        rgba(255,255,255,0.16);
+
+    font-family:
+        'Space Grotesk',
+        sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* FIGURAS */
+
+.figura {
+    position: relative;
+
+    margin:
+        35px auto 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family:
+        'Space Grotesk',
+        sans-serif;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+.tarjeta:hover .figura {
+    transform:
+        scale(1.06)
+        rotate(2deg);
+}
+
+
+/* X² */
+
+.figura-x2 {
+    width: 145px;
+    height: 145px;
+
+    border-radius: 20px;
+
+    color: #75ecdb;
+
+    font-size: 36px;
+
+    border:
+        1px solid
+        rgba(77,226,208,0.50);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(77,226,208,0.25),
+            rgba(77,226,208,0.07)
+        );
+
+    box-shadow:
+        0 15px 50px
+        rgba(77,226,208,0.08);
+}
+
+
+/* X */
+
+.figura-x {
+    width: 180px;
+    height: 75px;
+
+    border-radius: 17px;
+
+    color: #a79cff;
+
+    font-size: 32px;
+
+    border:
+        1px solid
+        rgba(126,116,255,0.55);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(126,116,255,0.27),
+            rgba(126,116,255,0.07)
+        );
+}
+
+
+/* 1 */
+
+.figura-uno {
+    width: 80px;
+    height: 80px;
+
+    border-radius: 17px;
+
+    color: #ffd17e;
+
+    font-size: 29px;
+
+    border:
+        1px solid
+        rgba(255,194,92,0.55);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,194,92,0.27),
+            rgba(255,194,92,0.07)
+        );
+}
+
+
+/* MEDIDAS X */
+
+.lado-x {
+    position: absolute;
+
+    color: #64738b;
+
+    font-size: 11px;
+
+    font-weight: 500;
+}
+
+.lado-superior {
+    top: -23px;
+}
+
+.lado-lateral {
+    right: -18px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+}
+
+
+/* INFORMACIÓN DE CADA FICHA */
+
+.info-ficha .tipo {
+    display: block;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #68768f;
+
+    margin-bottom: 7px;
+}
+
+.info-ficha h4 {
+    font-family:
+        'Space Grotesk',
+        sans-serif;
+
+    font-size: 31px;
+
+    color: #ffffff;
+
+    margin-bottom: 12px;
+}
+
+.info-ficha p {
+    color: #909db4;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+
+    min-height: 70px;
+}
+
+
+/* OPERACIÓN INFERIOR */
+
+.operacion {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 8px 13px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(255,255,255,0.04);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    color: #b8c3d8;
+
+    font-family:
+        'Space Grotesk',
+        sans-serif;
+
+    font-size: 12px;
+}
+
+
+/* COLORES DE OPERACIONES */
+
+.tarjeta-x2 .operacion {
+    color: #72e5d5;
+}
+
+.tarjeta-x .operacion {
+    color: #a49aff;
+}
+
+.tarjeta-uno .operacion {
+    color: #f3c876;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .bloque-explicacion {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjetas-fichas {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta {
+        min-height: auto;
+    }
+
+    .info-ficha p {
+        min-height: auto;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .marco-teorico {
+        padding:
+            80px 18px
+            100px;
+    }
+
+    .texto-explicacion {
+        padding:
+            30px 25px;
+    }
+
+    .encabezado-seccion h2 {
+        letter-spacing: -2px;
+    }
+
+    .marco-imagen {
+        min-height: 350px;
+    }
+
+    .imagen-temporal {
+        min-height: 310px;
+    }
+
+}
+
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+
+@keyframes flotar {
+
+    0%, 100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-14px);
+    }
+}
+
+
+@keyframes fichaFlotante {
+
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -15px;
+    }
+}
