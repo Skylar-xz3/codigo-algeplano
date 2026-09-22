@@ -1796,3 +1796,319 @@ h1 span {
     border-top:
         1px solid
         rgba(255,255,255,0.07
+/* =========================================================
+   RESULTADO Y VIDEO - MODELADO
+========================================================= */
+
+
+/* ---------- FACTORIZACIÓN ---------- */
+
+.factorizacion {
+    margin-top: 0;
+    padding-top: 30px;
+
+    border-top: 1px solid rgba(255,255,255,0.07);
+
+    margin-bottom: 22px;
+}
+
+
+.factorizacion .titulo-pequeno {
+    margin-bottom: 14px;
+}
+
+
+.tarjeta-factor {
+    position: relative;
+
+    width: 100%;
+
+    padding: 25px 22px;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(82, 105, 255, 0.10),
+            rgba(121, 73, 226, 0.08)
+        );
+
+    border: 1px solid rgba(121, 126, 255, 0.20);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.025),
+        0 15px 35px rgba(0,0,0,0.10);
+}
+
+
+/* Luz suave */
+
+.tarjeta-factor::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    right: -80px;
+    top: -90px;
+
+    border-radius: 50%;
+
+    background: rgba(115, 81, 255, 0.14);
+
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+
+/* Resultado grande */
+
+.tarjeta-factor .resultado-factor {
+    position: relative;
+    z-index: 2;
+
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: 27px;
+    font-weight: 600;
+
+    color: #f4f5ff;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* Separador */
+
+.linea-area {
+    position: relative;
+    z-index: 2;
+
+    width: 55px;
+    height: 1px;
+
+    margin: 15px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #7786ff,
+            transparent
+        );
+}
+
+
+/* Área */
+
+.tarjeta-factor .area {
+    position: relative;
+    z-index: 2;
+
+    margin: 0;
+
+    color: #aab5d0;
+
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: 14px;
+}
+
+
+.tarjeta-factor .area span {
+    display: inline-block;
+
+    margin-right: 8px;
+
+    color: #68758d;
+
+    font-family: 'DM Sans', sans-serif;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   BOTÓN VIDEO
+========================================================= */
+
+.boton-video {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 15px 17px;
+
+    border-radius: 17px;
+
+    text-decoration: none !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(102, 79, 255, 0.18),
+            rgba(127, 64, 213, 0.12)
+        );
+
+    border: 1px solid rgba(139, 99, 255, 0.28);
+
+    box-shadow:
+        0 12px 30px rgba(58, 37, 140, 0.10);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.boton-video:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(156, 116, 255, 0.55);
+
+    box-shadow:
+        0 18px 40px rgba(69, 43, 160, 0.18);
+}
+
+
+/* Círculo play */
+
+.boton-video .play {
+    width: 43px;
+    height: 43px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding-left: 2px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7567ff,
+            #8e55df
+        );
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    box-shadow:
+        0 8px 22px rgba(105, 78, 255, 0.25);
+}
+
+
+/* Texto del video */
+
+.texto-video {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    text-align: left;
+}
+
+
+.texto-video strong {
+    color: #f1efff;
+
+    font-family: 'DM Sans', sans-serif;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+.texto-video small {
+    color: #837c9e;
+
+    font-size: 9px;
+
+    text-decoration: none;
+}
+
+
+/* Flecha derecha */
+
+.flecha-video {
+    margin-left: auto;
+
+    color: #9b8cff;
+
+    font-size: 20px;
+
+    text-decoration: none;
+
+    transition: transform 0.3s ease;
+}
+
+
+.boton-video:hover .flecha-video {
+    transform: translateX(5px);
+}
+
+
+/* Evita que el navegador pinte el enlace morado */
+
+.boton-video:link,
+.boton-video:visited,
+.boton-video:hover,
+.boton-video:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================================================
+   PEQUEÑO AJUSTE DE LA COLUMNA DERECHA
+========================================================= */
+
+.lado-resultados {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    min-width: 0;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 900px) {
+
+    .tarjeta-factor .resultado-factor {
+        font-size: 23px;
+    }
+
+    .boton-video {
+        padding: 14px;
+    }
+}
