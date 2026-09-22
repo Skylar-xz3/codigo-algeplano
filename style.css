@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
  
  
 /* =========================================
@@ -16,7 +16,7 @@ html {
 }
  
 body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     background: #07111f;
     color: white;
     overflow-x: hidden;
@@ -1924,7 +1924,7 @@ h1 span {
  
     color: #68758d;
  
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Quicksand', sans-serif;
  
     font-size: 8px;
     font-weight: 700;
@@ -2030,7 +2030,7 @@ h1 span {
 .texto-video strong {
     color: #f1efff;
  
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Quicksand', sans-serif;
  
     font-size: 14px;
     font-weight: 600;
@@ -2107,32 +2107,55 @@ h1 span {
     }
 }
  
-/* =========================================
-   TIPOGRAFÍA CÓDIGO ALGEPLANO
-========================================= */
+/* =========================================================
+   TIPOGRAFÍA MEJORADA
+   Baloo 2: títulos redondeados y elegantes
+   Quicksand: texto claro, suave y fácil de leer
+   Space Grotesk: fórmulas matemáticas
+========================================================= */
  
-/* Títulos principales: más llamativos y juveniles */
+body {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+}
+ 
 h1,
 .encabezado-seccion h2,
 .encabezado-modelado h2,
 .titulo-fichas h3 {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+ 
+.contenido-portada h2,
+.info-ficha h4 {
+    font-family: 'Baloo 2', sans-serif;
     font-weight: 700;
 }
  
-/* Subtítulos y etiquetas */
 .etiqueta,
 .materia,
 .numero-seccion,
 .mini-titulo,
 .grupo,
 .ejercicio-numero,
-.titulo-pequeno {
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 600;
+.titulo-pequeno,
+.datos small {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
 }
  
-/* Fórmulas y expresiones matemáticas */
+.descripcion,
+.texto-explicacion,
+.intro-modelado,
+.info-ficha,
+.pie-polypad,
+.texto-video,
+.datos p {
+    font-family: 'Quicksand', sans-serif;
+}
+ 
 .formula,
 .trinomio-principal,
 .resultado-factor,
@@ -2141,18 +2164,124 @@ h1,
 .mini-x2,
 .mini-x,
 .mini-x-abajo,
-.mini-uno {
+.mini-uno,
+.operacion,
+.area {
     font-family: 'Space Grotesk', sans-serif;
 }
  
-/* Texto general */
-body,
-.descripcion,
-.texto-explicacion,
-.intro-modelado,
-.info-ficha,
-.pie-polypad,
-.texto-video {
-    font-family: 'Nunito', sans-serif;
+ 
+/* =========================================================
+   DESENFOQUE DE MOVIMIENTO AL DESPLAZARSE
+   Efecto CSS de entrada: blur + movimiento vertical.
+   En navegadores compatibles se activa según el scroll.
+========================================================= */
+ 
+@keyframes entrada-con-motion-blur {
+    0% {
+        opacity: 0;
+        filter: blur(12px);
+        transform: translateY(42px) scale(0.985);
+    }
+ 
+    45% {
+        opacity: 0.78;
+        filter: blur(4px);
+    }
+ 
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0) scale(1);
+    }
+}
+ 
+/* Elementos que aparecen suavemente al entrar en pantalla */
+@supports (animation-timeline: view()) {
+ 
+    .encabezado-seccion,
+    .bloque-explicacion,
+    .zona-fichas,
+    .encabezado-modelado,
+    .ejercicio-modelado {
+        animation-name: entrada-con-motion-blur;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(.2,.7,.2,1);
+        animation-fill-mode: both;
+ 
+        animation-timeline: view();
+        animation-range: entry 5% cover 32%;
+ 
+        will-change: transform, filter, opacity;
+    }
+ 
+    .tarjeta:nth-child(2),
+    .ejercicio-modelado:nth-of-type(2) {
+        animation-range: entry 8% cover 35%;
+    }
+ 
+    .tarjeta:nth-child(3),
+    .ejercicio-modelado:nth-of-type(3) {
+        animation-range: entry 11% cover 38%;
+    }
+}
+ 
+ 
+/* =========================================================
+   MICROINTERACCIONES MÁS SUAVES
+========================================================= */
+ 
+.tarjeta,
+.ejercicio-modelado,
+.dimension,
+.tarjeta-factor,
+.marco-polypad,
+.boton,
+.boton-video {
+    transition:
+        transform 0.35s cubic-bezier(.2,.7,.2,1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        filter 0.35s ease;
+}
+ 
+.tarjeta:hover,
+.ejercicio-modelado:hover {
+    transform: translateY(-7px);
+    filter: brightness(1.04);
+}
+ 
+.dimension:hover {
+    transform: translateY(-3px);
+    border-color: rgba(126,139,255,0.24);
+}
+ 
+.marco-polypad:hover {
+    transform: translateY(-3px);
+}
+ 
+.boton:hover,
+.boton-video:hover {
+    transform: translateY(-3px) scale(1.01);
+}
+ 
+ 
+/* =========================================================
+   ACCESIBILIDAD: REDUCIR MOVIMIENTO
+========================================================= */
+ 
+@media (prefers-reduced-motion: reduce) {
+ 
+    html {
+        scroll-behavior: auto;
+    }
+ 
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
  
