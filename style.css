@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
  
  
 /* =========================================
@@ -1924,7 +1924,7 @@ h1 span {
  
     color: #68758d;
  
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Nunito', sans-serif;
  
     font-size: 8px;
     font-weight: 700;
@@ -2030,7 +2030,7 @@ h1 span {
 .texto-video strong {
     color: #f1efff;
  
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Nunito', sans-serif;
  
     font-size: 14px;
     font-weight: 600;
@@ -2111,16 +2111,16 @@ h1 span {
    TIPOGRAFÍA CÓDIGO ALGEPLANO
 ========================================= */
  
-/* Títulos principales */
+/* Títulos principales: más llamativos y juveniles */
 h1,
 .encabezado-seccion h2,
 .encabezado-modelado h2,
 .titulo-fichas h3 {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Fredoka', sans-serif;
     font-weight: 700;
 }
  
-/* Etiquetas pequeñas */
+/* Subtítulos y etiquetas */
 .etiqueta,
 .materia,
 .numero-seccion,
@@ -2128,10 +2128,11 @@ h1,
 .grupo,
 .ejercicio-numero,
 .titulo-pequeno {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
 }
  
-/* Matemáticas */
+/* Fórmulas y expresiones matemáticas */
 .formula,
 .trinomio-principal,
 .resultado-factor,
@@ -2139,11 +2140,13 @@ h1,
 .figura,
 .mini-x2,
 .mini-x,
-.mini-x-abajo {
+.mini-x-abajo,
+.mini-uno {
     font-family: 'Space Grotesk', sans-serif;
 }
  
 /* Texto general */
+body,
 .descripcion,
 .texto-explicacion,
 .intro-modelado,
