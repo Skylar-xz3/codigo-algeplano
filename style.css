@@ -831,6 +831,45 @@ h1 span {
 
     font-size: 27px;
 }
+/* X HORIZONTAL INFERIOR */
+
+.mini-x-abajo {
+    position: absolute;
+
+    width: 145px;
+    height: 58px;
+
+    left: 0;
+    bottom: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(126,116,255,0.30),
+            rgba(126,116,255,0.10)
+        );
+
+    border:
+        1px solid
+        rgba(126,116,255,0.55);
+
+    color: #a79cff;
+
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: 27px;
+    font-weight: 600;
+
+    box-shadow:
+        0 15px 40px
+        rgba(126,116,255,0.08);
+}
 
 .mini-uno {
     position: absolute;
