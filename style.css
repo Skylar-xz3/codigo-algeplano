@@ -2108,16 +2108,9 @@ h1 span {
 }
  
 /* =========================================================
-   TIPOGRAFÍA MEJORADA
-   Baloo 2: títulos redondeados y elegantes
-   Quicksand: texto claro, suave y fácil de leer
-   Space Grotesk: fórmulas matemáticas
+   TIPOGRAFÍA REDONDEADA Y ELEGANTE
 ========================================================= */
- 
-body {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 500;
-}
+body { font-family: 'Quicksand', sans-serif; font-weight: 500; }
  
 h1,
 .encabezado-seccion h2,
@@ -2125,35 +2118,12 @@ h1,
 .titulo-fichas h3 {
     font-family: 'Baloo 2', sans-serif;
     font-weight: 800;
-    letter-spacing: -1.5px;
 }
  
 .contenido-portada h2,
 .info-ficha h4 {
     font-family: 'Baloo 2', sans-serif;
     font-weight: 700;
-}
- 
-.etiqueta,
-.materia,
-.numero-seccion,
-.mini-titulo,
-.grupo,
-.ejercicio-numero,
-.titulo-pequeno,
-.datos small {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 700;
-}
- 
-.descripcion,
-.texto-explicacion,
-.intro-modelado,
-.info-ficha,
-.pie-polypad,
-.texto-video,
-.datos p {
-    font-family: 'Quicksand', sans-serif;
 }
  
 .formula,
@@ -2170,35 +2140,102 @@ h1,
     font-family: 'Space Grotesk', sans-serif;
 }
  
+/* =========================================================
+   PORTADA ELECTRÓNICA PREMIUM
+========================================================= */
+.contenido-portada {
+    max-width: 1050px;
+    padding: 35px 20px;
+}
+ 
+.etiqueta {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    color: #c0c8ff;
+    background: linear-gradient(135deg, rgba(104,118,255,0.09), rgba(84,103,190,0.05));
+    border: 1px solid rgba(130,145,255,0.38);
+    border-radius: 100px;
+}
+ 
+.materia {
+    position: relative;
+    z-index: 5;
+    font-family: 'Quicksand', sans-serif;
+    color: #65dfd3;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+}
+ 
+h1 {
+    position: relative;
+    z-index: 2;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: clamp(58px, 7.2vw, 96px);
+    font-weight: 700;
+    line-height: 0.90;
+    letter-spacing: -3px;
+    margin: 0 auto 35px;
+    color: #f6f7fb;
+}
+ 
+h1 span {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.96em;
+    letter-spacing: -3px;
+    background: linear-gradient(100deg, #7887f4 0%, #8a7dec 34%, #6ca6dc 68%, #55d2c8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 8px 22px rgba(91,111,220,0.12));
+}
+ 
+.portada {
+    background:
+        radial-gradient(circle at 25% 25%, rgba(91,106,196,0.11), transparent 32%),
+        radial-gradient(circle at 78% 72%, rgba(64,177,170,0.065), transparent 32%),
+        linear-gradient(145deg, #081321 0%, #0c1729 48%, #091321 100%);
+}
+ 
+.portada::before {
+    background-image:
+        linear-gradient(rgba(160,175,220,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(160,175,220,0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+}
  
 /* =========================================================
-   DESENFOQUE DE MOVIMIENTO AL DESPLAZARSE
-   Efecto CSS de entrada: blur + movimiento vertical.
-   En navegadores compatibles se activa según el scroll.
+   MOTION BLUR CORREGIDO
 ========================================================= */
- 
 @keyframes entrada-con-motion-blur {
     0% {
         opacity: 0;
-        filter: blur(12px);
-        transform: translateY(42px) scale(0.985);
+        filter: blur(8px);
+        transform: translateY(35px);
     }
- 
-    45% {
-        opacity: 0.78;
-        filter: blur(4px);
+    20% {
+        opacity: 0.75;
+        filter: blur(2px);
     }
- 
+    40% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
     100% {
         opacity: 1;
         filter: blur(0);
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
 }
  
-/* Elementos que aparecen suavemente al entrar en pantalla */
 @supports (animation-timeline: view()) {
- 
     .encabezado-seccion,
     .bloque-explicacion,
     .zona-fichas,
@@ -2208,501 +2245,41 @@ h1,
         animation-duration: 1s;
         animation-timing-function: cubic-bezier(.2,.7,.2,1);
         animation-fill-mode: both;
- 
         animation-timeline: view();
-        animation-range: entry 5% cover 32%;
- 
+        animation-range: entry 0% cover 20%;
         will-change: transform, filter, opacity;
     }
- 
-    .tarjeta:nth-child(2),
-    .ejercicio-modelado:nth-of-type(2) {
-        animation-range: entry 8% cover 35%;
-    }
- 
-    .tarjeta:nth-child(3),
-    .ejercicio-modelado:nth-of-type(3) {
-        animation-range: entry 11% cover 38%;
-    }
 }
  
- 
-/* =========================================================
-   MICROINTERACCIONES MÁS SUAVES
-========================================================= */
- 
-.tarjeta,
 .ejercicio-modelado,
-.dimension,
-.tarjeta-factor,
+.tarjeta,
 .marco-polypad,
-.boton,
+.tarjeta-factor,
+.dimension,
 .boton-video {
-    transition:
-        transform 0.35s cubic-bezier(.2,.7,.2,1),
-        box-shadow 0.35s ease,
-        border-color 0.35s ease,
-        filter 0.35s ease;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
 }
- 
-.tarjeta:hover,
-.ejercicio-modelado:hover {
-    transform: translateY(-7px);
-    filter: brightness(1.04);
-}
- 
-.dimension:hover {
-    transform: translateY(-3px);
-    border-color: rgba(126,139,255,0.24);
-}
- 
-.marco-polypad:hover {
-    transform: translateY(-3px);
-}
- 
-.boton:hover,
-.boton-video:hover {
-    transform: translateY(-3px) scale(1.01);
-}
- 
- 
-/* =========================================================
-   ACCESIBILIDAD: REDUCIR MOVIMIENTO
-========================================================= */
  
 @media (prefers-reduced-motion: reduce) {
- 
-    html {
-        scroll-behavior: auto;
-    }
- 
+    html { scroll-behavior: auto; }
     *,
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+        filter: none !important;
     }
 }
-/* =========================================================
-   PORTADA PRO MAX
-   Electrónica + elegante + limpia
-========================================================= */
-
-/* Más aire entre los elementos principales */
-
-.contenido-portada {
-    max-width: 1050px;
-    padding: 35px 20px;
-}
-
-
-/* Etiqueta superior */
-
-.etiqueta {
-    font-family: 'Quicksand', sans-serif;
-
-    font-size: 11px;
-    font-weight: 700;
-
-    letter-spacing: 2.5px;
-
-    padding: 10px 20px;
-
-    margin-bottom: 30px;
-
-    color: #c0c8ff;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(104, 118, 255, 0.09),
-            rgba(84, 103, 190, 0.05)
-        );
-
-    border:
-        1px solid
-        rgba(130, 145, 255, 0.38);
-
-    border-radius: 100px;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.04),
-        0 8px 30px rgba(60,70,180,0.08);
-}
-
-
-/* MATEMÁTICA 2026 */
-
-.materia {
-    position: relative;
-    z-index: 5;
-
-    font-family: 'Quicksand', sans-serif;
-
-    color: #65dfd3;
-
-    font-size: 12px;
-    font-weight: 700;
-
-    letter-spacing: 5px;
-
-    margin-bottom: 28px;
-}
-
-
-/* =========================================================
-   TÍTULO PRINCIPAL
-========================================================= */
-
-h1 {
-    position: relative;
-    z-index: 2;
-
-    font-family: 'Baloo 2', sans-serif;
-
-    /*
-       Bajamos bastante el tamaño.
-       Así CÓDIGO ya no toca MATEMÁTICA.
-    */
-
-    font-size:
-        clamp(58px, 7.2vw, 96px);
-
-    font-weight: 700;
-
-    line-height: 0.90;
-
-    letter-spacing: -3px;
-
-    margin: 0 auto 35px;
-
-    color: #f6f7fb;
-
-    text-shadow:
-        0 8px 35px
-        rgba(0,0,0,0.16);
-}
-
-
-/* ALGEPLANO */
-
-h1 span {
-    display: block;
-
-    margin-top: 15px;
-
-    font-size: 0.96em;
-
-    letter-spacing: -3px;
-
-    background:
-        linear-gradient(
-            100deg,
-            #7887f4 0%,
-            #8a7dec 34%,
-            #6ca6dc 68%,
-            #55d2c8 100%
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-
-    /*
-       Brillo MUY sutil.
-       Ya no parece neón cyberpunk.
-    */
-
-    filter:
-        drop-shadow(
-            0 8px 22px
-            rgba(91, 111, 220, 0.12)
-        );
-}
-
-
-/* =========================================================
-   FÓRMULA
-========================================================= */
-
-.formula {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-family:
-        'Space Grotesk',
-        sans-serif;
-
-    font-size: 17px;
-    font-weight: 500;
-
-    color: #9be4db;
-
-    padding: 10px 24px;
-
-    margin-bottom: 26px;
-
-    border-left:
-        1px solid
-        rgba(119, 135, 245, 0.65);
-
-    border-right:
-        1px solid
-        rgba(82, 208, 196, 0.65);
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,0.025),
-            transparent
-        );
-}
-
-
-/* =========================================================
-   DESCODIFICANDO EL ÁLGEBRA
-========================================================= */
-
-.contenido-portada h2 {
-    font-family:
-        'Quicksand',
-        sans-serif;
-
-    font-size:
-        clamp(24px, 2.5vw, 34px);
-
-    font-weight: 600;
-
-    letter-spacing: -0.5px;
-
-    color: #edf0f8;
-
-    margin-bottom: 17px;
-}
-
-
-/* DESCRIPCIÓN */
-
-.descripcion {
-    max-width: 620px;
-
-    margin:
-        0 auto 32px;
-
-    font-family:
-        'Quicksand',
-        sans-serif;
-
-    color: #98a5bb;
-
-    font-size: 15px;
-
-    font-weight: 500;
-
-    line-height: 1.75;
-}
-
-
-/* =========================================================
-   BOTÓN
-========================================================= */
-
-.boton {
-    font-family:
-        'Quicksand',
-        sans-serif;
-
-    background:
-        linear-gradient(
-            135deg,
-            #6574d9,
-            #6f68ce
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,0.08);
-
-    border-radius: 14px;
-
-    padding: 15px 24px;
-
-    font-size: 11px;
-    font-weight: 700;
-
-    letter-spacing: 1.5px;
-
-    box-shadow:
-        0 12px 35px
-        rgba(65,75,170,0.18);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
-}
-
-
-.boton:hover {
-    transform:
-        translateY(-3px);
-
-    background:
-        linear-gradient(
-            135deg,
-            #7180e5,
-            #7770da
-        );
-
-    box-shadow:
-        0 18px 42px
-        rgba(65,75,170,0.25);
-}
-
-
-/* =========================================================
-   FONDO MÁS PREMIUM, MENOS CYBERPUNK
-========================================================= */
-
-.portada {
-    background:
-
-        radial-gradient(
-            circle at 25% 25%,
-            rgba(91, 106, 196, 0.11),
-            transparent 32%
-        ),
-
-        radial-gradient(
-            circle at 78% 72%,
-            rgba(64, 177, 170, 0.065),
-            transparent 32%
-        ),
-
-        linear-gradient(
-            145deg,
-            #081321 0%,
-            #0c1729 48%,
-            #091321 100%
-        );
-}
-
-
-/* Cuadrícula todavía electrónica,
-   pero mucho más discreta */
-
-.portada::before {
-    background-image:
-
-        linear-gradient(
-            rgba(160,175,220,0.025) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(160,175,220,0.025) 1px,
-            transparent 1px
-        );
-
-    background-size:
-        48px 48px;
-}
-
-
-/* Quitamos exceso de resplandor */
-
-.portada::after {
-    width: 700px;
-    height: 500px;
-
-    background:
-        rgba(88, 105, 195, 0.045);
-
-    filter:
-        blur(100px);
-}
-
-
-/* =========================================================
-   DATOS INFERIORES
-========================================================= */
-
-.datos {
-    margin-top: 48px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,0.065);
-}
-
-
-.datos small {
-    font-family:
-        'Quicksand',
-        sans-serif;
-
-    color: #657188;
-
-    font-size: 8px;
-
-    letter-spacing: 1.7px;
-}
-
-
-.datos p {
-    font-family:
-        'Quicksand',
-        sans-serif;
-
-    color: #cdd3df;
-
-    font-size: 12px;
-
-    font-weight: 500;
-}
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
+ 
 @media (max-width: 700px) {
-
-    .contenido-portada {
-        padding:
-            25px 10px;
-    }
-
-    .materia {
-        margin-bottom: 22px;
-
-        letter-spacing: 3px;
-    }
-
+    .materia { margin-bottom: 22px; letter-spacing: 3px; }
     h1 {
-        font-size:
-            clamp(48px, 16vw, 72px);
-
+        font-size: clamp(48px, 16vw, 72px);
         line-height: 0.92;
-
         letter-spacing: -2px;
     }
-
-    h1 span {
-        margin-top: 12px;
-
-        letter-spacing: -2px;
-    }
-
-    .datos {
-        gap: 20px;
-
-        flex-wrap: wrap;
-    }
-} 
+    h1 span { margin-top: 12px; letter-spacing: -2px; }
+}
+ 
