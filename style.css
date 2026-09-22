@@ -2317,3 +2317,53 @@ h1{font-family:'Baloo 2',sans-serif;font-size:clamp(58px,8.4vw,106px);line-heigh
 @supports(animation-timeline:view()){.encabezado-seccion,.bloque-explicacion,.zona-fichas,.encabezado-modelado,.ejercicio-modelado{animation:revelar linear both;animation-timeline:view();animation-range:entry 5% cover 24%}@keyframes revelar{from{opacity:0;transform:translateY(32px) scale(.985)}to{opacity:1;transform:none}}}
 @media(max-width:700px){.nav-flotante{top:10px}.nav-marca{font-size:0}.nav-marca span{font-size:13px}.nav-flotante>div a{padding:8px 9px}.portada{padding-top:105px}.datos{grid-template-columns:1fr;gap:4px}.pie-web .contenedor{flex-direction:column;text-align:center}.acciones-portada{flex-direction:column;align-items:center}.boton,.boton-secundario{width:min(300px,100%)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+ 
+ 
+/* =========================================================
+   PORTADA LETTERING — VERSIÓN MÁS ALEGRE
+   Mantiene el estilo tecnológico, pero suma color, calidez y personalidad.
+========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Pacifico&display=swap');
+ 
+.portada{
+    background:
+      radial-gradient(circle at 16% 24%,rgba(255,126,166,.16),transparent 25%),
+      radial-gradient(circle at 82% 24%,rgba(140,116,255,.20),transparent 26%),
+      radial-gradient(circle at 72% 78%,rgba(72,225,207,.14),transparent 25%),
+      radial-gradient(circle at 30% 84%,rgba(255,194,104,.10),transparent 22%),
+      linear-gradient(145deg,#08172b 0%,#102343 48%,#0a1930 100%);
+}
+.portada::before{background-size:58px 58px;opacity:.68;mask-image:radial-gradient(circle at center,#000 25%,transparent 85%)}
+.contenido-portada{max-width:980px}
+.etiqueta{background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(123,140,255,.08));border-color:rgba(255,255,255,.16);box-shadow:0 10px 35px rgba(0,0,0,.12)}
+.materia{color:#7de9dc;letter-spacing:4.5px}
+ 
+.titulo-lettering{position:relative;display:inline-flex;flex-direction:column;align-items:center;margin:0 auto 24px;padding:0 55px 18px;isolation:isolate}
+.titulo-codigo{position:relative;z-index:3;margin-bottom:-24px;margin-left:-250px;font-family:'Pacifico',cursive;font-size:clamp(43px,6vw,72px);line-height:1.1;font-weight:400;color:#fff2c9;transform:rotate(-5deg);text-shadow:0 8px 26px rgba(255,194,104,.14)}
+.titulo-codigo::after{content:"";position:absolute;left:7%;right:-8%;bottom:-2px;height:8px;border-radius:50%;border-bottom:3px solid rgba(255,139,171,.75);transform:rotate(2deg)}
+.titulo-algeplano{position:relative;z-index:2;font-family:'Fredoka','Baloo 2',sans-serif;font-size:clamp(64px,10vw,118px);line-height:.95;font-weight:700;letter-spacing:-4px;background:linear-gradient(95deg,#8c9bff 0%,#c28cff 31%,#ff8fb4 57%,#ffd27d 76%,#65e3d3 100%);background-size:180% auto;-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 12px 30px rgba(94,103,230,.17));animation:gradienteTitulo 8s ease-in-out infinite alternate}
+.trazo-lettering{position:absolute;z-index:1;left:15%;right:8%;bottom:2px;height:18px;border-bottom:5px solid #61dfd0;border-radius:50%;transform:rotate(-2deg);opacity:.85}
+.trazo-lettering::after{content:"";position:absolute;right:-5px;bottom:-7px;width:13px;height:13px;border-right:4px solid #61dfd0;border-bottom:4px solid #61dfd0;transform:rotate(-28deg)}
+.estrella-titulo{position:absolute;z-index:4;color:#ffd477;filter:drop-shadow(0 0 12px rgba(255,212,119,.35));animation:brillito 2.4s ease-in-out infinite}
+.estrella-a{right:17px;top:18%;font-size:28px}.estrella-b{left:18px;bottom:20%;font-size:20px;animation-delay:.7s;color:#ff91b6}
+@keyframes gradienteTitulo{to{background-position:100% center}}
+@keyframes brillito{50%{transform:scale(1.3) rotate(12deg);opacity:.7}}
+ 
+.mini-formulas{display:inline-flex;align-items:center;gap:9px;margin:5px 0 20px;padding:8px 12px;border:1px solid rgba(255,255,255,.10);border-radius:16px;background:rgba(6,18,35,.45);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.mini-formulas span{min-width:38px;padding:6px 9px;border-radius:10px;background:rgba(255,255,255,.055);font-family:'Space Grotesk',sans-serif;font-size:14px;color:#e8edff}.mini-formulas span:nth-of-type(1){color:#73e7d8}.mini-formulas span:nth-of-type(2){color:#ad9aff}.mini-formulas span:nth-of-type(3){color:#ffd17d}.mini-formulas i{font-style:normal;color:#697b9b;font-weight:800}
+.contenido-portada h2{font-family:'Fredoka','Baloo 2',sans-serif;font-weight:600;letter-spacing:-.5px}.sub-rayado{position:relative;white-space:nowrap}.sub-rayado::after{content:"";position:absolute;left:3%;right:1%;bottom:-5px;height:7px;border-radius:50%;border-bottom:2px solid rgba(255,143,180,.75);transform:rotate(-1deg)}
+.descripcion{font-size:16.5px;color:#bdc8db}
+.boton{background:linear-gradient(135deg,#7888ff,#9b70ef 55%,#d475c9);box-shadow:0 15px 40px rgba(120,100,235,.28)}
+.boton-secundario{background:rgba(255,255,255,.055)}
+ 
+.sticker{position:absolute;z-index:5;font-family:'Fredoka',sans-serif;font-weight:600;text-align:center;pointer-events:none;box-shadow:0 16px 38px rgba(0,0,0,.18);animation:stickerFloat 5s ease-in-out infinite}
+.sticker-idea{left:8%;top:29%;padding:13px 17px;border-radius:18px 18px 18px 5px;background:#fff1bd;color:#37425b;font-size:13px;transform:rotate(-7deg)}
+.sticker-math{right:8%;top:31%;padding:11px 16px;border:1px solid rgba(255,255,255,.15);border-radius:15px;background:rgba(255,143,180,.13);backdrop-filter:blur(10px);color:#ffd4e2;font-family:'Space Grotesk',sans-serif;font-size:13px;transform:rotate(6deg);animation-delay:1s}
+@keyframes stickerFloat{50%{translate:0 -9px}}
+ 
+.simbolo{opacity:.75}.ficha{border-radius:16px}.ficha-x2{border-color:rgba(89,226,210,.45);background:linear-gradient(145deg,rgba(89,226,210,.12),rgba(89,226,210,.03))}.ficha-x{border-color:rgba(255,139,178,.40);background:linear-gradient(145deg,rgba(255,139,178,.10),rgba(150,110,245,.04))}.ficha-1{border-color:rgba(255,210,119,.52);background:rgba(255,210,119,.08)}
+.datos{padding:15px;border:1px solid rgba(255,255,255,.075);border-radius:18px;background:rgba(6,18,35,.30);backdrop-filter:blur(8px)}
+.datos div+div{border-left:1px solid rgba(255,255,255,.07)}
+ 
+@media(max-width:900px){.sticker{display:none}.titulo-codigo{margin-left:-120px}.titulo-lettering{padding-left:20px;padding-right:20px}.titulo-algeplano{letter-spacing:-2px}}
+@media(max-width:600px){.titulo-codigo{margin-left:-80px;margin-bottom:-15px;font-size:42px}.titulo-algeplano{font-size:clamp(54px,18vw,78px);letter-spacing:-2px}.titulo-lettering{padding:0 8px 15px}.estrella-a{right:-8px}.estrella-b{left:-3px}.mini-formulas{gap:5px}.mini-formulas span{min-width:31px;padding:5px 7px}.datos div+div{border-left:0;border-top:1px solid rgba(255,255,255,.06);padding-top:7px}}
